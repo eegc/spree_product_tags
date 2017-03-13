@@ -1,0 +1,15 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:new_tag) %>
+<% end %>
+
+<%= form_for [:admin, @tag], html: { multipart: true } do |f| %>
+  <fieldset data-hook="new_tag">
+    <%= render partial: 'form', locals: { f: f } %>
+
+    <div class="form-actions" data-hook="buttons">
+      <%= button Spree.t('actions.save'), 'save' %>
+      <span class="or"><%= Spree.t(:or) %></span>
+      <%= button_link_to Spree.t('actions.cancel'), spree.admin_tags_path, icon: 'delete', id: 'cancel_link' %>
+    </div>
+  </fieldset>
+<% end %>
