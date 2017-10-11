@@ -41,7 +41,7 @@
             <%= tag.taggings_count %>
           </td>
           <td>
-            <%= Spree::Tag.human_attribute_name(tag.kind) %>
+            <%= Spree::Tag.human_attribute_name(tag.kind) if tag.kind.present? %>
           </td>
           <td class="actions actions-2 text-right">
             <%= link_to_with_icon('edit', Spree.t(:edit), spree.edit_admin_tag_url(tag), class: 'btn btn-primary btn-sm', no_text: true, data: { action: 'edit' }) %>

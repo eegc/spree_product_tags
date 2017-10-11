@@ -6,6 +6,6 @@
 
   <div data-hook="kind" class="form-group">
     <%= f.label :kind %>
-    <%= f.select :kind, Spree::Tag.kinds.map{|k| [Spree::Tag.human_attribute_name(k.first), k.first]}, { :prompt => true }, class: "fullwidth select2" %>
+    <%= f.select :kind, Spree::Tag.kinds.map{|k| [Spree::Tag.human_attribute_name(k.first), k.first]}, { }, class: "fullwidth select2" %>
   </div>
 </div>
