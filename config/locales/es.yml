@@ -14,5 +14,7 @@ es:
       spree/tag:
         name: Nombre
         kind: Tipo
+        label_list: Etiquetas
         tag_label: Etiqueta
         tag_category: Tag Categoría
+        tag_list: Categorías (Tags)
