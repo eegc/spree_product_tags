@@ -6,33 +6,42 @@
   <%= button_link_to(Spree.t(:new_tag), spree.new_admin_tag_url(@product), { class: "btn-success", icon: 'add', id: 'new_tag_link' }) %>
 <% end %>
 
-<% unless @tags.any? %>
+<%= render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection } %>
+
+<%= render partial: 'filters' %>
+
+<% unless @collection.any? %>
   <div class="alert alert-warning">
     <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Tag)) %>.
   </div>
 <% else %>
-  <table class="table sortable" data-hook="videos_table">
+  <table class="table" data-hook="tags_table">
     <thead>
-      <tr data-hook="documents_header">
+      <tr data-hook="tags_header">
         <th>
-          <%= Spree.t(:name) %>
+          <%= Spree::Tag.human_attribute_name(:name) %>
         </th>
         <th>
           <%= Spree.t(:taggings_count) %>
         </th>
-
+        <th>
+          <%= Spree::Tag.human_attribute_name(:category) %>
+        </th>
         <th class="actions"></th>
       </tr>
     </thead>
 
     <tbody>
-      <% @tags.order(:name).each do |tag| %>
+      <% @collection.order(:name).each do |tag| %>
         <tr id="<%= spree_dom_id tag %>" data-hook="tags_row">
           <td>
             <%= tag.name %>
           </td>
           <td>
             <%= tag.taggings_count %>
+          </td>
+          <td>
+            <%= Spree::Tag.human_attribute_name(tag.kind) %>
           </td>
           <td class="actions actions-2 text-right">
             <%= link_to_with_icon('edit', Spree.t(:edit), spree.edit_admin_tag_url(tag), class: 'btn btn-primary btn-sm', no_text: true, data: { action: 'edit' }) %>

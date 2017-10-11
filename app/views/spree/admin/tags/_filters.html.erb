@@ -1,0 +1,24 @@
+<% content_for :table_filter do %>
+  <div data-hook="admin_tags_sidebar">
+    <%= search_form_for [:admin, @search] do |f| %>
+      <div data-hook="admin_tags_index_search" class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :name_cont, Spree::Tag.human_attribute_name(:name) %>
+            <%= f.text_field :name_cont, :size => 15, class: "form-control js-quick-search-target" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :kind_eq, Spree::Tag.human_attribute_name(:kind) %>
+            <%= f.select :kind_eq, Spree::Tag.kinds.map{|x| [Spree::Tag.human_attribute_name(x[0]), x[1]]}, {:include_blank => true}, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div data-hook="admin_tags_index_search_buttons" class="form-actions">
+        <%= button Spree.t(:filter_results), 'search' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

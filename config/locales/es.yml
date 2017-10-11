@@ -1,4 +1,18 @@
 es:
   spree:
-    name: Nombre
-    taggings_count: Relacionados
+    category: Categoría
+    edit: Editar
+    filter_results: Filtrar resultados
+    new_tag: Nuevo Tag
+    taggings_count: Cantidad de relacionados
+  activerecord:
+    models:
+      spree/tag:
+        one: Tag
+        other: Tags
+    attributes:
+      spree/tag:
+        name: Nombre
+        kind: Tipo
+        tag_label: Etiqueta
+        tag_category: Tag Categoría

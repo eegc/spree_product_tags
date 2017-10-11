@@ -1,20 +1,28 @@
-<%= form_for [:admin, @tag], html: { multipart: true } do |f| %>
-  <div data-hook="edit_tag" class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="panel-title">
-        <%= @tag.name%>
-      </h1>
-    </div>
-    <div class="panel-body">
-      <div class="form-group">
-        <div class="col-md-12">
-          <%= render partial: 'form', locals: { f: f } %>
-        </div>
+<% content_for :page_title do %>
+  <%= plural_resource_name(Spree::Tag) %>
+<% end %>
 
-        <div class="form-actions" data-hook="buttons">
-          <%= button Spree.t('actions.update'), 'save' %>
-          <span class="or"><%= Spree.t(:or) %></span>
-          <%= button_link_to Spree.t('actions.cancel'), spree.admin_tags_url, id: 'cancel_link', icon: 'delete' %>
+<%= form_for [:admin, @tag], html: { multipart: true } do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <div data-hook="edit_tag" class="panel panel-default">
+        <div class="panel-heading">
+          <h1 class="panel-title">
+            <%= @tag.name%>
+          </h1>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <div class="col-md-12">
+              <%= render partial: 'form', locals: { f: f } %>
+
+              <div class="form-actions" data-hook="buttons">
+                <%= button Spree.t('actions.update'), 'save' %>
+                <span class="or"><%= Spree.t(:or) %></span>
+                <%= button_link_to Spree.t('actions.cancel'), spree.admin_tags_url, id: 'cancel_link', icon: 'delete' %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
