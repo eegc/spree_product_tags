@@ -19,13 +19,13 @@
     <thead>
       <tr data-hook="tags_header">
         <th>
-          <%= Spree.t(:name) %>
+          <%= Spree::Tag.human_attribute_name(:name) %>
         </th>
         <th>
           <%= Spree.t(:taggings_count) %>
         </th>
         <th>
-          <%= Spree.t(:category) %>
+          <%= Spree::Tag.human_attribute_name(:category) %>
         </th>
         <th class="actions"></th>
       </tr>
@@ -41,7 +41,7 @@
             <%= tag.taggings_count %>
           </td>
           <td>
-            <%= Spree.t(tag.kind) %>
+            <%= Spree::Tag.human_attribute_name(tag.kind) %>
           </td>
           <td class="actions actions-2 text-right">
             <%= link_to_with_icon('edit', Spree.t(:edit), spree.edit_admin_tag_url(tag), class: 'btn btn-primary btn-sm', no_text: true, data: { action: 'edit' }) %>

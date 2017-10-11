@@ -4,14 +4,14 @@
       <div data-hook="admin_tags_index_search" class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <%= f.label :name_cont, Spree.t(:name) %>
+            <%= f.label :name_cont, Spree::Tag.human_attribute_name(:name) %>
             <%= f.text_field :name_cont, :size => 15, class: "form-control js-quick-search-target" %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <%= f.label :kind_eq, Spree.t(:kind) %>
-            <%= f.select :kind_eq, Spree::Tag.kinds.map{|x| [Spree.t(x[0]), x[1]]}, {:include_blank => true}, class: "form-control" %>
+            <%= f.label :kind_eq, Spree::Tag.human_attribute_name(:kind) %>
+            <%= f.select :kind_eq, Spree::Tag.kinds.map{|x| [Spree::Tag.human_attribute_name(x[0]), x[1]]}, {:include_blank => true}, class: "form-control" %>
           </div>
         </div>
       </div>
