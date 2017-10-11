@@ -4,6 +4,6 @@
 <div data-hook="admin_product_form_tag_list">
   <%= f.field_container :tag_list, class: ['form-group'] do %>
     <%= f.label :tag_list, Spree::Tag.human_attribute_name(:tag_list) %>
-    <%= f.hidden_field :tag_list, value: @product.tag_list.join(','), class: 'tag_picker' %>
+    <%= f.hidden_field :tag_list, value: @product.tag_list.join(','), class: 'tag_picker', 'data-kind': Spree::Tag.kinds[:tag_category] %>
   <% end %>
 </div>
