@@ -24,7 +24,10 @@ $.fn.tagAutocomplete = function () {
       datatype: 'json',
       data: function (term) {
         return {
-          q: term,
+          q: {
+            name_cont: term ,
+            kind_eq: $(this).data('kind')
+          },
           token: Spree.api_key
         };
       },
