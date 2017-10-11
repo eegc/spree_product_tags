@@ -11,7 +11,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :kind_eq, Spree::Tag.human_attribute_name(:kind) %>
-            <%= f.select :kind_eq, Spree::Tag.kinds.map{|x| [Spree::Tag.human_attribute_name(x[0]), x[1]]}, {:include_blank => true}, class: "form-control" %>
+            <%= f.select :kind_eq, Spree::Tag.kinds.map{ |k| [Spree::Tag.human_attribute_name(k.first), k.second] }, {}, class: "form-control" %>
           </div>
         </div>
       </div>
